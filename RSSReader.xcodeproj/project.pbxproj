@@ -15,6 +15,7 @@
 		A357237027AE917D008D87CB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A357236F27AE917D008D87CB /* SettingView.swift */; };
 		A357237227AE957B008D87CB /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A357237127AE957B008D87CB /* SettingModel.swift */; };
 		A357237627AFC8A3008D87CB /* AtomReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A357237527AFC8A3008D87CB /* AtomReader.swift */; };
+		A357237927B1635D008D87CB /* testAtom.xml in Resources */ = {isa = PBXBuildFile; fileRef = A357237827B1635D008D87CB /* testAtom.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A357236F27AE917D008D87CB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		A357237127AE957B008D87CB /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		A357237527AFC8A3008D87CB /* AtomReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomReader.swift; sourceTree = "<group>"; };
+		A357237827B1635D008D87CB /* testAtom.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = testAtom.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		A357235E27AE8B2B008D87CB /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				A357237727B16314008D87CB /* resources */,
 				A357235F27AE8B2B008D87CB /* RSSReaderApp.swift */,
 				A357237427AFC820008D87CB /* View */,
 				A357236327AE8B2D008D87CB /* Assets.xcassets */,
@@ -93,6 +96,14 @@
 				A357236D27AE90AF008D87CB /* RSSContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A357237727B16314008D87CB /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A357237827B1635D008D87CB /* testAtom.xml */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A357237927B1635D008D87CB /* testAtom.xml in Resources */,
 				A357236727AE8B2D008D87CB /* Preview Assets.xcassets in Resources */,
 				A357236427AE8B2D008D87CB /* Assets.xcassets in Resources */,
 			);
