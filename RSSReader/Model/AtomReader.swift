@@ -10,6 +10,8 @@ import Foundation
 
 class AtomReader: NSObject {
     private var parser: XMLParser!
+    private var parseData = AtomFeedModel()
+    private var tagName = ""
 
     init(data: Data) {
         self.parser = XMLParser(data: data)
@@ -18,11 +20,15 @@ class AtomReader: NSObject {
     }
     
     // Parse XML data
-    func parse() {
+    func parse() -> AtomFeedModel {
+        // parse data initialize
+        parseData = AtomFeedModel()
+
         guard parser.parse() else {
             print("Parse XML file error. Perser is not defined.")
-            return
+            return AtomFeedModel()
         }
+        return parseData
     }
 }
 
@@ -39,6 +45,7 @@ extension AtomReader: XMLParserDelegate {
     // When parsing the start tag.
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         print("When parsing the start tagName: \(elementName)")
+        tagName = elementName
     }
     
     // When parsing the element.

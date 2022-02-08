@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RSSView.swift
 //  RSSReader
 //  
 //  Created by kunikuni03 on 2022/02/05
