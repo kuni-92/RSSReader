@@ -11,6 +11,7 @@ import SwiftUI
 struct RSSContentView: View {
     @EnvironmentObject var settings :SettingModel
     @State var item = AtomFeedModel()
+    @State var isPresentedSafari = false
 
     var body: some View {
         ScrollView {
@@ -24,7 +25,11 @@ struct RSSContentView: View {
             .padding()
             // Content area
             VStack {
-                ContentItemView(title: item.entry.title, updated: item.entry.updated)
+                Button(action: {
+                    isPresentedSafari = true
+                }, label: {
+                    ContentItemView(title: item.entry.title, updated: item.entry.updated)
+                })
             }
             .padding()
         }
@@ -32,6 +37,9 @@ struct RSSContentView: View {
             withAnimation() {
                 item = xmlLoad()!
             }
+        }
+        .sheet(isPresented: $isPresentedSafari, onDismiss: {isPresentedSafari = false}) {
+            SafariView(url: URL(string: item.entry.link)!)
         }
     }
     
