@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A339F1E327B2ACE00045D328 /* AtomFeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339F1E227B2ACE00045D328 /* AtomFeedModel.swift */; };
+		A339F1E527B4B9E20045D328 /* ContentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339F1E427B4B9E20045D328 /* ContentItemView.swift */; };
 		A357236027AE8B2B008D87CB /* RSSReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A357235F27AE8B2B008D87CB /* RSSReaderApp.swift */; };
 		A357236227AE8B2B008D87CB /* RSSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A357236127AE8B2B008D87CB /* RSSView.swift */; };
 		A357236427AE8B2D008D87CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A357236327AE8B2D008D87CB /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		A339F1E227B2ACE00045D328 /* AtomFeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomFeedModel.swift; sourceTree = "<group>"; };
+		A339F1E427B4B9E20045D328 /* ContentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentItemView.swift; sourceTree = "<group>"; };
 		A357235C27AE8B2B008D87CB /* RSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A357235F27AE8B2B008D87CB /* RSSReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSReaderApp.swift; sourceTree = "<group>"; };
 		A357236127AE8B2B008D87CB /* RSSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				A357236F27AE917D008D87CB /* SettingView.swift */,
 				A357236127AE8B2B008D87CB /* RSSView.swift */,
 				A357236D27AE90AF008D87CB /* RSSContentView.swift */,
+				A339F1E427B4B9E20045D328 /* ContentItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				A357237627AFC8A3008D87CB /* AtomReader.swift in Sources */,
 				A357236227AE8B2B008D87CB /* RSSView.swift in Sources */,
 				A357237027AE917D008D87CB /* SettingView.swift in Sources */,
+				A339F1E527B4B9E20045D328 /* ContentItemView.swift in Sources */,
 				A357236027AE8B2B008D87CB /* RSSReaderApp.swift in Sources */,
 				A357236E27AE90AF008D87CB /* RSSContentView.swift in Sources */,
 			);

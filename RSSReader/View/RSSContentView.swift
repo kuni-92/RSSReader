@@ -10,33 +10,43 @@ import SwiftUI
 
 struct RSSContentView: View {
     @EnvironmentObject var settings :SettingModel
-    
+    @State var item = AtomFeedModel()
 
     var body: some View {
-        VStack {
-            Text("Content menu")
-            Text("url is: \(settings.url)")
-            Button {
-                withAnimation {
-                    xmlLoad()
-                }
-            } label: {
-                Text("XMLファイル読み込み")
+        ScrollView {
+            // Title area
+            VStack{
+                Text("\(item.title)")
+                    .font(.largeTitle)
+                Text("\(item.link)")
+                    .font(.caption)
+            }
+            .padding()
+            // Content area
+            VStack {
+                ContentItemView(title: item.entry.title, updated: item.entry.updated)
+            }
+            .padding()
+        }
+        .onAppear() {
+            withAnimation() {
+                item = xmlLoad()!
             }
         }
     }
     
-    func xmlLoad() {
+    // Load Atom.xml
+    func xmlLoad() -> AtomFeedModel? {
         guard let url = Bundle.main.url(forResource: "testAtom", withExtension: "xml") else {
             print("file not found.")
-            return
+            return nil
         }
         guard let data = try? Data(contentsOf: url) else {
             print("load error.")
-            return
+            return nil
         }
         let reader = AtomReader(data: data)
-        reader.parse()
+        return reader.parse()
     }
 }
 
