@@ -15,17 +15,18 @@ struct AtomFeedModel {
         subtitle = ""
         link     = ""
         updated  = ""
-        entry = AtomEntryModel()
+        entry = [AtomEntryModel]()
     }
 
     var title: String
     var subtitle: String
     var link: String
     var updated: String
-    var entry: AtomEntryModel
+    var entry: [AtomEntryModel]
 }
 
-struct AtomEntryModel {
+struct AtomEntryModel: Identifiable {
+    var id = UUID()
     
     init() {
         title   = ""

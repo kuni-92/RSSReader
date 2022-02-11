@@ -7,11 +7,19 @@
     <updated>2022-02-03T00:00:00+00:00</updated>
     <id>http://localhost/atom.xml</id>
     <entry xml:lang="en">
-        <title>コンテンツタイトル</title>
+        <title>コンテンツ1タイトル</title>
         <published>2022-02-03T00:00:00+00:00</published>
         <updated>2022-02-03T00:00:00+00:00</updated>
         <link href="http://localhost" type="text/html"/>
         <id>https://localhost/content/</id>
-        <content type="html">コンテンツ</content>
+        <content type="html">コンテンツ1</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ2タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ2</content>
     </entry>
 </feed>

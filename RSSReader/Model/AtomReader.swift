@@ -12,6 +12,7 @@ class AtomReader: NSObject {
     private var parser: XMLParser!
     private var parseData = AtomFeedModel()
     private var tagName = ""
+    private var entry = AtomEntryModel()
     
     private enum parseState {
         case feed
@@ -60,6 +61,7 @@ extension AtomReader: XMLParserDelegate {
             state = parseState.feed
         } else if tagName == "entry" {
             state = parseState.entry
+            entry = AtomEntryModel()
         }
         
         if tagName == "link" {
@@ -67,8 +69,16 @@ extension AtomReader: XMLParserDelegate {
             case .feed:
                 parseData.link = attributeDict["href"] ?? ""
             case .entry:
-                parseData.entry.link = attributeDict["href"] ?? ""
+                entry.link = attributeDict["href"] ?? ""
             }
+        }
+    }
+    
+    // When parsing the end tag.
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "entry" {
+            parseData.entry.append(entry)
+            print("When parsing the end tag: \(parseData.entry)")
         }
     }
     
@@ -108,14 +118,14 @@ extension AtomReader: XMLParserDelegate {
     private func setEntryValue(tagName: String, value: String) {
         switch tagName {
         case "title":
-            parseData.entry.title = value
+            entry.title = value
         case "updated":
-            parseData.entry.updated = value
+            entry.updated = value
         case "link":
             // The link tag has no value
             break
         case "content":
-            parseData.entry.content = value
+            entry.content = value
         default:
             break
         }
