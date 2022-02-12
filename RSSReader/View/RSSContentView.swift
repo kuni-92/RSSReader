@@ -10,11 +10,12 @@ import SwiftUI
 
 struct RSSContentView: View {
     @EnvironmentObject var settings :SettingModel
-    @State var item = AtomFeedModel()
-    @State var isPresentedSafari = false
-    @State var presentedURL = ""
+    @State private var item: AtomFeedModel = AtomFeedModel()
+    @State private var isPresentedSafari: Bool = false
+    @State private var presentedURL: String = ""
 
     var body: some View {
+
         ScrollView {
             // Title area
             VStack{
@@ -43,7 +44,7 @@ struct RSSContentView: View {
             }
         }
         .sheet(isPresented: $isPresentedSafari, onDismiss: {isPresentedSafari = false}) {
-            SafariView(url: URL(string: presentedURL)!)
+            SafariView(url: $presentedURL)
         }
     }
     

@@ -10,10 +10,10 @@ import SwiftUI
 import SafariServices
 
 struct SafariView: UIViewControllerRepresentable {
-    var url: URL
+    @Binding var url: String
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
-        let safariViewController = SFSafariViewController(url: url)
+        let safariViewController = SFSafariViewController(url: URL(string: url)!)
         safariViewController.dismissButtonStyle = .close
         return safariViewController
     }
