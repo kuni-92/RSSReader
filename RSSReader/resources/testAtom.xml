@@ -22,4 +22,68 @@
         <id>https://localhost/content/</id>
         <content type="html">コンテンツ2</content>
     </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ3タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ3</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ4タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ4</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ5タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ5</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ6タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ6</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ7タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ7</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ8タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ8</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ9タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ9</content>
+    </entry>
+    <entry xml:lang="en">
+        <title>コンテンツ10タイトル</title>
+        <published>2022-02-04T00:00:00+00:00</published>
+        <updated>2022-02-04T00:00:00+00:00</updated>
+        <link href="http://localhost" type="text/html"/>
+        <id>https://localhost/content/</id>
+        <content type="html">コンテンツ10</content>
+    </entry>
 </feed>

@@ -20,10 +20,18 @@ struct ContentItemView: View {
     var body: some View {
         VStack {
             Text("\(title)")
-                .font(.title)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Text("\(updated)")
+                .frame(maxWidth: .infinity, alignment: .trailing)
                 .font(.caption)
         }
+        .padding()
+        .frame(width: 370, height: 80)
+        .background(Color(red: 1.0, green: 0.95, blue: 0.9))
+        .compositingGroup()
+        .cornerRadius(5)
+        .shadow(color: .gray, radius: 3, x: 10, y: 10)
+
     }
 }
 
