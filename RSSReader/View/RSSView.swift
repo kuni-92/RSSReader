@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RSSView: View {
-    @StateObject var settings = SettingModel("http://127.0.0.1:8080")
+    @StateObject var settings = SettingModel("http://localhost/atom.xml")
     var body: some View {
         TabView {
             RSSContentView().tabItem {

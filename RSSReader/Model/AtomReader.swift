@@ -102,14 +102,10 @@ extension AtomReader: XMLParserDelegate {
     private func setFeedValue(tagName: String, value: String) {
         switch tagName {
         case "title":
-            parseData.title = value
-        case "subtitle":
-            parseData.subtitle = value
+            parseData.title.append(value)
         case "link":
             // The link tag has no value
             break
-        case "updated":
-            parseData.updated = value
         default:
             break
         }
@@ -118,14 +114,12 @@ extension AtomReader: XMLParserDelegate {
     private func setEntryValue(tagName: String, value: String) {
         switch tagName {
         case "title":
-            entry.title = value
+            entry.title.append(value)
         case "updated":
-            entry.updated = value
+            entry.updated.append(value)
         case "link":
             // The link tag has no value
             break
-        case "content":
-            entry.content = value
         default:
             break
         }

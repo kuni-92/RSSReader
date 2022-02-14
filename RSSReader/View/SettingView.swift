@@ -31,6 +31,6 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
-            .environmentObject(SettingModel("http://127.0.0.1:8080"))
+            .environmentObject(SettingModel("http://localhost/atom.xml"))
     }
 }

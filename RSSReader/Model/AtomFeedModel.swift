@@ -12,16 +12,12 @@ struct AtomFeedModel {
     
     init() {
         title    = ""
-        subtitle = ""
         link     = ""
-        updated  = ""
         entry = [AtomEntryModel]()
     }
 
     var title: String
-    var subtitle: String
     var link: String
-    var updated: String
     var entry: [AtomEntryModel]
 }
 
@@ -32,11 +28,9 @@ struct AtomEntryModel: Identifiable {
         title   = ""
         link    = ""
         updated = ""
-        content = ""
     }
 
     var title: String
     var link: String
     var updated: String
-    var content: String
 }

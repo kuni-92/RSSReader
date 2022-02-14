@@ -15,28 +15,37 @@ struct RSSContentView: View {
     @State private var presentedURL: String = ""
 
     var body: some View {
+        ZStack {
+            // Back ground color.
+            LinearGradient(gradient: Gradient(colors: [.blue, .red, .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea(edges: [.top])
 
-        ScrollView {
-            // Title area
-            VStack{
-                Text("\(item.title)")
-                    .font(.largeTitle)
-                Text("\(item.link)")
-                    .font(.caption)
-            }
-            .padding()
-            // Content area
             VStack {
-                ForEach(item.entry) { entry in
-                    Button(action: {
-                        isPresentedSafari = true
-                        presentedURL = entry.link
-                    }, label: {
-                        ContentItemView(title: entry.title, updated: entry.updated)
-                    })
+                // Title area
+                VStack {
+                    Text("\(item.title)")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                    Text("\(settings.url)")
+                        .font(.caption)
+                        .foregroundColor(.white)
                 }
+                .padding()
+                // Content area
+                VStack {
+                    ScrollView {
+                        ForEach(item.entry) { entry in
+                            Button(action: {
+                                isPresentedSafari = true
+                                presentedURL = entry.link
+                            }, label: {
+                                ContentItemView(title: entry.title, updated: entry.updated)
+                            })
+                        }
+                    }
+                }
+                .padding()
             }
-            .padding()
         }
         .onAppear() {
             withAnimation() {
@@ -50,15 +59,22 @@ struct RSSContentView: View {
     
     // Load Atom.xml
     func xmlLoad() -> AtomFeedModel? {
-        guard let url = Bundle.main.url(forResource: "testAtom", withExtension: "xml") else {
-            print("file not found.")
-            return nil
+        print(settings.url)
+        let sem = DispatchSemaphore.init(value: 0)
+        var xmldata: Data?
+        let request = URLRequest(url: URL(string: settings.url)!)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+
+            guard let data = data else {
+                return
+            }
+            xmldata = data
+            sem.signal()
         }
-        guard let data = try? Data(contentsOf: url) else {
-            print("load error.")
-            return nil
-        }
-        let reader = AtomReader(data: data)
+        task.resume()
+        
+        sem.wait()
+        let reader = AtomReader(data: xmldata!)
         return reader.parse()
     }
 }
