@@ -13,16 +13,33 @@ struct SettingView: View {
     @State private var url: String = ""
 
     var body: some View {
-        VStack {
-            Text("Setting menu")
-            Text("RSS URL is: \(settings.url)")
-            TextField("RSS/Atom URL", text: $url)
-            Button {
-                withAnimation {
-                    settings.url = url
+        ZStack {
+            // Back ground color.
+            LinearGradient(gradient: Gradient(colors: [.yellow, .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea(edges: [.top])
+            VStack {
+                Text("Setting menu")
+                    .foregroundColor(.gray)
+                    .font(.title)
+                    .padding()
+                TextField("Atom URL", text: $url)
+                    .frame(width: 400, height: 50)
+                    .background()
+                    .cornerRadius(10)
+                    .padding()
+                Button {
+                    withAnimation {
+                        settings.url = url
+                    }
+                } label: {
+                    Text("Apply")
                 }
-            } label: {
-                Text("Apply")
+                .foregroundColor(.white)
+                .font(.title2)
+                .frame(width: 200, height: 50)
+                .background(.teal)
+                .cornerRadius(10)
+                .padding()
             }
         }
     }
