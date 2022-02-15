@@ -49,7 +49,7 @@ struct RSSContentView: View {
         }
         .onAppear() {
             withAnimation() {
-                item = xmlLoad()!
+                item = xmlLoad() ?? AtomFeedModel()
             }
         }
         .sheet(isPresented: $isPresentedSafari, onDismiss: {isPresentedSafari = false}) {
@@ -62,18 +62,22 @@ struct RSSContentView: View {
         print(settings.url)
         let sem = DispatchSemaphore.init(value: 0)
         var xmldata: Data?
-        let request = URLRequest(url: URL(string: settings.url)!)
+        guard let url = URL(string: settings.url) else {
+            return nil
+        }
+        let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
 
-            guard let data = data else {
-                return
-            }
-            xmldata = data
+            xmldata = data ?? nil
             sem.signal()
         }
         task.resume()
         
         sem.wait()
+        
+        if xmldata == nil {
+            return nil
+        }
         let reader = AtomReader(data: xmldata!)
         return reader.parse()
     }
