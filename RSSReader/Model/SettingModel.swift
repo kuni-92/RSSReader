@@ -10,12 +10,39 @@ import Foundation
 
 class SettingModel: ObservableObject {
     @Published var url: String
-    
-    init(_ url: String) {
-        self.url = url
+    private let atomSettingFileName = "atomURL.txt"
+
+    init() {
+        url = ""
+        guard let settingURL = readSetting() else {
+            return
+        }
+        url = settingURL
+    }
+
+    func readSetting() -> String? {
+        let fileURL = getAtomSettingFileURL()
+
+        guard let atomURL = try? String(contentsOf: fileURL) else {
+            return nil
+        }
+        return atomURL
     }
     
-    func GetURL() -> URL? {
-        return URL(string: self.url)
+    func writeSetting(atomURL: String) {
+        let fileURL = getAtomSettingFileURL()
+        
+        do {
+            try atomURL.write(to: fileURL, atomically: true, encoding: .utf8)
+            self.url = atomURL
+        } catch {
+           print("URL write error: \(error)")
+        }
+    }
+    
+    private func getAtomSettingFileURL() -> URL {
+        let fileManager = FileManager.default
+        let tmpDir = fileManager.temporaryDirectory
+        return tmpDir.appendingPathComponent(atomSettingFileName)
     }
 }

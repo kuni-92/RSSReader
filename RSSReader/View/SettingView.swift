@@ -29,7 +29,7 @@ struct SettingView: View {
                     .padding()
                 Button {
                     withAnimation {
-                        settings.url = url
+                        settings.writeSetting(atomURL: url)
                     }
                 } label: {
                     Text("Apply")
@@ -48,6 +48,6 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
-            .environmentObject(SettingModel("http://localhost/atom.xml"))
+            .environmentObject(SettingModel())
     }
 }
