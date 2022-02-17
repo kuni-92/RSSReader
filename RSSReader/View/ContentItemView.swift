@@ -30,7 +30,7 @@ struct ContentItemView: View {
         .background(Color(red: 1.0, green: 0.95, blue: 0.9))
         .compositingGroup()
         .cornerRadius(5)
-        .shadow(color: .gray, radius: 3, x: 10, y: 10)
+        .shadow(color: .gray, radius: 1, x: 5, y: 5)
 
     }
 }
